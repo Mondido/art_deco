@@ -1,6 +1,7 @@
 module ArtDeco
   class Decorator
     def initialize(component)
+      self.instance_variable_set "@#{component.class.name.downcase}".to_sym, component
       @component = component
     end
 
