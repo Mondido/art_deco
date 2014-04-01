@@ -25,7 +25,7 @@ module ArtDeco
 
     def method_missing(method_name, *args, &block)
       if @component.respond_to?(method_name)
-        @component.send(method_name)
+        @component.send(method_name, *args)
       else
         super
       end
