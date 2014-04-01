@@ -43,5 +43,26 @@ module ArtDeco
       end
     end
 
+    def self.method_missing(method_name, *args, &block)
+      if self.constant_name.constantize.respond_to?(method_name)
+        self.constant_name.constantize.send(method_name, *args, &block)
+      else
+        super
+      end
+    end
+
+    def self.respond_to_missing?(method_name, include_private = false)
+      self.constant_name.constantize.respond_to?(method_name)
+    end
+
+    private
+
+    def self.constant_name
+      name = self.name.gsub(/Decorator\z/, '')
+      name = 'Decorator' if name.length.zero?
+      return name
+    end
+
+
   end
 end
