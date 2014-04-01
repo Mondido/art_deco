@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Robert Falkén"]
   spec.email         = ["robert@robertfalken.se"]
   spec.summary       = %q{Implementation of the decorator design pattern.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/robertfalken/art_deco"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
