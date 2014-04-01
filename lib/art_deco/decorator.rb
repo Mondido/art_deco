@@ -1,5 +1,7 @@
 module ArtDeco
   class Decorator
+    attr_reader :component
+
     def initialize(component)
       self.instance_variable_set "@#{component.class.name.downcase}".to_sym, component
       @component = component
