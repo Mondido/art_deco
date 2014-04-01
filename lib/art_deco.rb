@@ -10,7 +10,7 @@ module ArtDeco
       @@current = context
     end
 
-    cattr_reader :current
+    cattr_reader :current if self.respond_to? :cattr_reader
   end
 
 

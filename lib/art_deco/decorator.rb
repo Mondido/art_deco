@@ -23,7 +23,7 @@ module ArtDeco
 
     def method_missing(method_name, *args, &block)
       if @component.respond_to?(method_name)
-        @component.try(method_name)
+        @component.send(method_name)
       else
         super
       end
@@ -34,7 +34,11 @@ module ArtDeco
     end
 
     def self.factory(component)
-      "#{component.class.name}Decorator".constantize.new(component) rescue ArtDeco::Decorator.new(component)
+      begin
+        "#{component.class.name}Decorator".constantize.new(component)
+      rescue
+        ArtDeco::Decorator.new(component)
+      end
     end
 
   end
