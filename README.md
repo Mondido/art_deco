@@ -1,6 +1,6 @@
 # ArtDeco
 
-TODO: Write a gem description
+Implements the decorator design pattern by wrapping your models and adding decorative methods.
 
 ## Installation
 
@@ -18,7 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To create a decorator for your User model, create a file `app/decorators/user_decorator.rb`
+
+Then declare the class UserDecorator and let it inherit from ArtDeco::Decorator
+
+    class UserDecorator < ArtDeco::Decorator
+    end
+
+Now you can wrap your model in the decorator to add functionality without breaking the single responsibility pattern.
+
+    user = User.find(params[:id])
+    @user = UserDecorator.new(user)
 
 ## Contributing
 
