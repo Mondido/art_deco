@@ -1,7 +1,7 @@
 module ArtDeco
   module Behaviour
     def self.included(base)
-      base.before_filter do |controller|
+      base.before_action do |controller|
         ArtDeco::ViewContext.current = controller.view_context
       end
     end
